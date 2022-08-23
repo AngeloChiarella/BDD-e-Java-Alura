@@ -24,14 +24,14 @@ public class PropondoLanceSteps {
 	public void setup() {
 		this.lista = new ArrayList<Lance>();
 		leilao = new Leilao("Tablet XPTO");
-		System.out.println("Before");
+//		System.out.println("Before");
 	}
 
 	@After
 	public void tearDown() {
-		System.out.println("After");
+//		System.out.println("After");
 	}
-	
+
 	@Dado("um lance valido")
 	public void dado_um_lance_valido() {
 		Usuario usuario = new Usuario("fulano");
@@ -57,7 +57,7 @@ public class PropondoLanceSteps {
 //		lance15 = new Lance(usuario2, new BigDecimal("15.0"));
 //		leilao = new Leilao("Tablet XPTO");
 //	}
-	
+
 	@Dado("um lance de {double} reais do usuario {string}")
 	public void um_lance_de_reais_do_usuario_fulano(Double valor, String nomeUsuario) {
 		Lance lance = new Lance(new Usuario(nomeUsuario), new BigDecimal(valor));
@@ -74,6 +74,16 @@ public class PropondoLanceSteps {
 		Assert.assertEquals(this.lista.size(), leilao.getLances().size());
 		Assert.assertEquals(this.lista.get(0).getValor(), leilao.getLances().get(0).getValor());
 		Assert.assertEquals(this.lista.get(1).getValor(), leilao.getLances().get(1).getValor());
+	}
+
+	@Dado("um lance invalido de {double} reais")
+	public void um_lance_de_reais(Double valor) {
+		System.out.println(valor);
+	}
+
+	@Entao("o lance nao eh aceito")
+	public void o_lance_nao_eh_aceito() {
+		
 	}
 
 }
