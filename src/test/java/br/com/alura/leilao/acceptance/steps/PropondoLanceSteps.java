@@ -32,7 +32,7 @@ public class PropondoLanceSteps {
 
 	@After
 	public void tearDown() {
-//		System.out.println("After");
+		System.out.println("After");
 	}
 
 	@Dado("um lance valido")
